@@ -481,7 +481,7 @@ class Game {
     this.btnClaimReward.classList.add('hidden');
 
     let seconds = 5;
-    countdownEl.textContent = `Ad in ${seconds}s...`;
+    countdownEl.textContent = `Reward in ${seconds}s...`;
 
     // --- GOOGLE ADMOB INTEGRATION HOOK ---
     // When deploying to Google Play via Capacitor / Cordova:
@@ -489,7 +489,7 @@ class Game {
     const timer = setInterval(() => {
       seconds--;
       if (seconds > 0) {
-        countdownEl.textContent = `Ad in ${seconds}s...`;
+        countdownEl.textContent = `Reward in ${seconds}s...`;
       } else {
         clearInterval(timer);
         countdownEl.textContent = 'Reward Ready! 🎉';

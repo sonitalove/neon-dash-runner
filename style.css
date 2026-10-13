@@ -506,15 +506,16 @@ canvas {
   line-height: 1.5;
 }
 
-.ad-payout-tag {
-  margin-top: 10px;
-  background: rgba(255, 230, 0, 0.12);
-  border: 1px solid var(--neon-gold);
-  color: var(--neon-gold);
+.ad-game-badge {
+  margin-top: 8px;
+  background: rgba(0, 243, 255, 0.12);
+  border: 1px solid rgba(0, 243, 255, 0.4);
+  color: var(--neon-cyan);
   font-size: 12px;
   font-weight: 800;
-  padding: 6px 14px;
+  padding: 6px 16px;
   border-radius: 20px;
+  letter-spacing: 0.5px;
 }
 
 .ad-spinner {
