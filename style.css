@@ -233,6 +233,7 @@ canvas {
   font-weight: 800;
   font-size: 18px;
   color: var(--neon-cyan);
+  margin-right: 52px;
 }
 
 .combo-badge {
@@ -533,15 +534,16 @@ canvas {
 /* Sound Toggle */
 .sound-toggle {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 20px;
+  right: 20px;
   z-index: 50;
   background: var(--panel-bg);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   color: var(--text-muted);
   width: 42px;
   height: 42px;
-  border-radius: 50%;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
