@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "app.vercel.neon_dash_runner_lemon.twa",
+    "sha256_cert_fingerprints": ["D9:37:0C:52:D1:18:C5:BB:85:88:8D:DC:C9:86:6B:04:5C:B7:D5:3A:DF:7F:B9:11:E9:54:05:4D:55:17:F1:87"]
+  }
+}]
