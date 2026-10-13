@@ -1,10 +1,12 @@
-const CACHE_NAME = 'neon-dash-v1';
+const CACHE_NAME = 'neon-dash-v2';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
   './game.js',
   './icon.jpg',
+  './icon-192.png',
+  './icon-512.png',
   './banner.jpg',
   './manifest.json'
 ];
