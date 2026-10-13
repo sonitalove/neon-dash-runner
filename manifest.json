@@ -6,5 +6,19 @@
   "background_color": "#0a0a14",
   "theme_color": "#00f3ff",
   "orientation": "portrait",
-  "description": "Fast-paced neon jump runner game. Dodge obstacles, collect gems, and test your reflexes!"
+  "description": "Fast-paced neon jump runner game. Dodge obstacles, collect gems, and test your reflexes!",
+  "icons": [
+    {
+      "src": "icon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
 }
