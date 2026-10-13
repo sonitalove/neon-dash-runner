@@ -155,43 +155,43 @@ class Particle {
     if (this.type === 'ring') {
       // Expanding Shockwave ring
       ctx.strokeStyle = this.color;
-      ctx.lineWidth = Math.max(1, 3.5 * this.alpha);
+      ctx.lineWidth = Math.max(1, 1.8 * this.alpha);
       ctx.shadowColor = this.color;
-      ctx.shadowBlur = 18;
+      ctx.shadowBlur = 8;
       ctx.beginPath();
       ctx.arc(this.x, this.y, Math.max(1, this.radius), 0, Math.PI * 2);
       ctx.stroke();
     } else if (this.type === 'popupText') {
       // Floating glowing score text
-      ctx.font = '900 16px Outfit, sans-serif';
+      ctx.font = '900 15px Outfit, sans-serif';
       ctx.fillStyle = this.color;
       ctx.shadowColor = this.color;
-      ctx.shadowBlur = 14;
+      ctx.shadowBlur = 10;
       ctx.textAlign = 'center';
       ctx.fillText(this.text, this.x, this.y);
     } else if (this.type === 'shard') {
-      // Crystal Shard (rotating sharp glass/gem facet)
+      // Crystal Shard (delicate micro-shard)
       ctx.translate(this.x, this.y);
       ctx.rotate(this.rot);
       ctx.shadowColor = this.color;
-      ctx.shadowBlur = 14;
+      ctx.shadowBlur = 6;
 
       const s = this.size;
       // Main Shard Body
       ctx.fillStyle = this.color;
       ctx.beginPath();
-      ctx.moveTo(0, -s * 1.6);
-      ctx.lineTo(s * 0.7, 0);
-      ctx.lineTo(0, s * 1.6);
-      ctx.lineTo(-s * 0.7, 0);
+      ctx.moveTo(0, -s * 1.4);
+      ctx.lineTo(s * 0.6, 0);
+      ctx.lineTo(0, s * 1.4);
+      ctx.lineTo(-s * 0.6, 0);
       ctx.closePath();
       ctx.fill();
 
-      // Specular Highlight Edge (Pure bright reflection)
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+      // Specular Highlight Edge
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
       ctx.beginPath();
-      ctx.moveTo(0, -s * 1.6);
-      ctx.lineTo(s * 0.7, 0);
+      ctx.moveTo(0, -s * 1.4);
+      ctx.lineTo(s * 0.6, 0);
       ctx.lineTo(0, 0);
       ctx.closePath();
       ctx.fill();
@@ -201,15 +201,15 @@ class Particle {
       ctx.rotate(this.rot);
       ctx.fillStyle = this.color;
       ctx.shadowColor = this.color;
-      ctx.shadowBlur = 16;
+      ctx.shadowBlur = 6;
 
       const s = this.size;
       ctx.beginPath();
-      ctx.moveTo(0, -s * 1.8);
-      ctx.quadraticCurveTo(0, 0, s * 1.8, 0);
-      ctx.quadraticCurveTo(0, 0, 0, s * 1.8);
-      ctx.quadraticCurveTo(0, 0, -s * 1.8, 0);
-      ctx.quadraticCurveTo(0, 0, 0, -s * 1.8);
+      ctx.moveTo(0, -s * 1.4);
+      ctx.quadraticCurveTo(0, 0, s * 1.4, 0);
+      ctx.quadraticCurveTo(0, 0, 0, s * 1.4);
+      ctx.quadraticCurveTo(0, 0, -s * 1.4, 0);
+      ctx.quadraticCurveTo(0, 0, 0, -s * 1.4);
       ctx.fill();
     } else {
       // Normal glowing particle
@@ -855,28 +855,21 @@ class Game {
 
     const gemColor = isCombo ? '#ffe600' : '#00f3ff';
 
-    // 1. Double Expanding Neon Shockwave Rings
+    // 1. Delicate, tight neon ring
     this.particles.push(new Particle(gem.x, gem.y, {
       type: 'ring',
       color: gemColor,
-      radius: 6,
-      maxRadius: 55,
-      life: 0.35
-    }));
-    this.particles.push(new Particle(gem.x, gem.y, {
-      type: 'ring',
-      color: '#ffffff',
-      radius: 2,
-      maxRadius: 36,
-      life: 0.22
+      radius: 3,
+      maxRadius: 24,
+      life: 0.2
     }));
 
-    // 2. Crystal Shards bursting in all 360 degrees
-    const shardCount = isCombo ? 20 : 14;
+    // 2. Crystal Shards - Fine, delicate micro shards (small and clean)
+    const shardCount = isCombo ? 12 : 8;
     for (let i = 0; i < shardCount; i++) {
       const angle = (Math.PI * 2 / shardCount) * i + (Math.random() - 0.5) * 0.4;
-      const speed = Math.random() * 5 + 3.8;
-      const size = Math.random() * 4 + 3.2;
+      const speed = Math.random() * 2.8 + 1.4;
+      const size = Math.random() * 1.0 + 0.8; // fine micro shards
       const color = Math.random() < 0.65 ? gemColor : (Math.random() < 0.5 ? '#ffffff' : '#00ff88');
       this.particles.push(new Particle(gem.x, gem.y, {
         type: 'shard',
@@ -884,22 +877,22 @@ class Game {
         speed: speed,
         size: size,
         color: color,
-        gravity: 0.28,
-        friction: 0.95,
-        life: Math.random() * 0.4 + 0.65
+        gravity: 0.16,
+        friction: 0.94,
+        life: Math.random() * 0.18 + 0.28 // quick clean fade
       }));
     }
 
-    // 3. Glitter Sparkle Stars (✦)
-    for (let i = 0; i < 10; i++) {
+    // 3. Delicate micro sparkles (✦)
+    for (let i = 0; i < 5; i++) {
       this.particles.push(new Particle(gem.x, gem.y, {
         type: 'sparkle',
-        speed: Math.random() * 5.5 + 2,
-        size: Math.random() * 3.5 + 2.5,
+        speed: Math.random() * 2.2 + 1.0,
+        size: Math.random() * 0.9 + 0.7, // tiny glitter
         color: Math.random() < 0.6 ? '#ffffff' : '#ffe600',
-        gravity: 0.1,
-        friction: 0.94,
-        life: Math.random() * 0.35 + 0.5
+        gravity: 0.06,
+        friction: 0.93,
+        life: Math.random() * 0.15 + 0.22
       }));
     }
 
