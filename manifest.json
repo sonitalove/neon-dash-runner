@@ -1,0 +1,10 @@
+{
+  "name": "Neon Dash: Jump Runner",
+  "short_name": "NeonDash",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0a0a14",
+  "theme_color": "#00f3ff",
+  "orientation": "portrait",
+  "description": "Fast-paced neon jump runner game. Dodge obstacles, collect gems, and test your reflexes!"
+}
